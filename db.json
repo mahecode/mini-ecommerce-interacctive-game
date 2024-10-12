@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": "₹1000",
+      "description": "This is the first line of description for Product 1. This is the second line providing more details about the product. Finally, this is the third line offering additional insights about the features.",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": "₹1500",
+      "description": "Product 2 has some unique features. This is the second line of description highlighting them. The third line provides more technical details and specifications.",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": "₹2000",
+      "description": "This is a great product that offers a lot of value. Here's the second line explaining its benefits. And finally, this is the third line where we delve into more specific features.",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    }
+  ]
+}
