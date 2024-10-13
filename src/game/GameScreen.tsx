@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   Easing,
+  Image
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -168,6 +169,10 @@ const GameScreen: React.FC = () => {
               },
             ]}
           >
+            <Image source={require('./assets/tree-trunk.png')} style={{
+              width: wheelSize,
+              height: wheelSize,
+            }} />
             {/* Render attached arrows */}
             {renderAttachedArrows()}
           </Animated.View>
@@ -198,10 +203,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   wheel: {
-    width: wheelSize,
-    height: wheelSize,
-    borderRadius: wheelSize / 2,
-    backgroundColor: '#C3073F',
     justifyContent: 'center',
     alignItems: 'center',
   },
