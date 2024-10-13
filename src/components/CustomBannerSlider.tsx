@@ -65,7 +65,7 @@ const CustomBannerSlider: React.FC<CustomBannerSliderProps> = ({banners}) => {
               {backgroundColor: banner.backgroundColor || '#ccc'},
             ]}>
             {banner.image && (
-              <Image source={{uri: banner.image}} style={styles.image} />
+              <Image source={{uri: banner.image || ''}} style={styles.image} />
             )}
           </View>
         ))}
