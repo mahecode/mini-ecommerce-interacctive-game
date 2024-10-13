@@ -4,22 +4,34 @@
       "id": 1,
       "name": "Product 1",
       "price": "₹1000",
-      "description": "This is the first line of description for Product 1. This is the second line providing more details about the product. Finally, this is the third line offering additional insights about the features.",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+      "description": "This is the description for Product 1. It has some interesting features and comes with a variety of colors.",
+      "images": [
+        "https://via.placeholder.com/600x300?text=Product+1+Image+1",
+        "https://via.placeholder.com/600x300?text=Product+1+Image+2",
+        "https://via.placeholder.com/600x300?text=Product+1+Image+3"
+      ]
     },
     {
       "id": 2,
       "name": "Product 2",
       "price": "₹1500",
-      "description": "Product 2 has some unique features. This is the second line of description highlighting them. The third line provides more technical details and specifications.",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+      "description": "This is the description for Product 2. It is stylish and comfortable.",
+      "images": [
+        "https://via.placeholder.com/600x300?text=Product+2+Image+1",
+        "https://via.placeholder.com/600x300?text=Product+2+Image+2",
+        "https://via.placeholder.com/600x300?text=Product+2+Image+3"
+      ]
     },
     {
       "id": 3,
       "name": "Product 3",
       "price": "₹2000",
-      "description": "This is a great product that offers a lot of value. Here's the second line explaining its benefits. And finally, this is the third line where we delve into more specific features.",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+      "description": "This is the description for Product 3. A modern product with great features.",
+      "images": [
+        "https://via.placeholder.com/600x300?text=Product+3+Image+1",
+        "https://via.placeholder.com/600x300?text=Product+3+Image+2",
+        "https://via.placeholder.com/600x300?text=Product+3+Image+3"
+      ]
     }
   ]
 }

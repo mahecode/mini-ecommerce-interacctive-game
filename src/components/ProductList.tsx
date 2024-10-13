@@ -37,7 +37,7 @@ const ProductList: React.FC = () => {
         <TouchableOpacity onPress={() => navigation.navigate('ProductDetails', { product: item })}>
             <View style={styles.productContainer}>
                 <Image
-                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_5CS59FwS3dTBCPDlmVYkNIYVxFrMkIkSg&s' }}
+                    source={{ uri: item.image }}
                     resizeMode='contain'
                     style={styles.image}
                 />

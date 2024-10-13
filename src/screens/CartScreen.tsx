@@ -20,10 +20,10 @@ const CartScreen: React.FC = () => {
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.price}>{item.price}</Text>
                 <View style={styles.controls}>
-                    <Icon name="remove-circle-outline" size={30} color={colors.primary} onPress={() => adjustQuantity(item.id, item.quantity - 1)} />
+                    <Icon type='ionicon' name="remove-circle-outline" size={30} color={colors.primary} onPress={() => adjustQuantity(item.id, item.quantity - 1)} />
                     <Text style={styles.quantity}>{item.quantity}</Text>
-                    <Icon name="add-circle-outline" size={30} color={colors.primary} onPress={() => adjustQuantity(item.id, item.quantity + 1)} />
-                    <Icon name="trash-outline" size={30} color="red" onPress={() => removeFromCart(item.id)} />
+                    <Icon type='ionicon' name="add-circle-outline" size={30} color={colors.primary} onPress={() => adjustQuantity(item.id, item.quantity + 1)} />
+                    <Icon type='ionicon' name="trash-outline" size={30} color="red" onPress={() => removeFromCart(item.id)} />
                 </View>
             </View>
         </View>
