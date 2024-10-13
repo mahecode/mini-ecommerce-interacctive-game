@@ -10,6 +10,7 @@ import CartScreen from './src/screens/CartScreen';
 import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
 import {CartProvider, useCart} from './src/context/CartContext';
 import Icon from 'react-native-vector-icons/Ionicons';
+import GameIntroScreen from './src/game/GameIntroScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -56,7 +57,7 @@ const App: React.FC = () => {
             />
             <Tab.Screen
               name="Game"
-              component={GameScreen}
+              component={GameIntroScreen}
               options={{
                 headerShown: false, // Remove header from Game tab
                 tabBarIcon: ({color, size}) => (
