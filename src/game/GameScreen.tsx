@@ -28,6 +28,7 @@ const GameScreen: React.FC = () => {
   const [score, setScore] = useState<number>(0);
   const [isGameOver, setGameOver] = useState<boolean>(false);
   const rotation = useRef(new Animated.Value(0)).current;
+  const fixedArrowPositionY = useRef(new Animated.Value(height - 100)).current;
 
   const currentRotation = useRef(0);
 
@@ -54,10 +55,21 @@ const GameScreen: React.FC = () => {
   const launchArrow = () => {
     if (!isGameOver) {
       setArrows([...arrows, { id: arrows.length, angle: null }]);
+      moveFixedArrow();
     }
   };
 
-  const onArrowReachWheel = (arrowId: number) => {
+  const moveFixedArrow = () => {
+    Animated.timing(fixedArrowPositionY, {
+      toValue: height / 2 - wheelSize / 2,
+      duration: 500,
+      useNativeDriver: true,
+    }).start(() => {
+      onArrowReachWheel();
+    });
+  };
+
+  const onArrowReachWheel = () => {
     // Get the current rotation angle of the wheel
     const wheelRotation = currentRotation.current || 0;
     const currentWheelAngle = ((wheelRotation * 360) % 360);
@@ -76,7 +88,7 @@ const GameScreen: React.FC = () => {
       // Attach arrow to wheel
       setArrows((prevArrows) =>
         prevArrows.map((arrow) =>
-          arrow.id === arrowId ? { ...arrow, angle: currentWheelAngle } : arrow
+          arrow.angle === null ? { ...arrow, angle: currentWheelAngle } : arrow
         )
       );
       setScore(score + 1);
@@ -94,6 +106,7 @@ const GameScreen: React.FC = () => {
     setArrows([]);
     setScore(0);
     setGameOver(false);
+    fixedArrowPositionY.setValue(height - 100);
   };
 
   // Arrow component
@@ -111,7 +124,8 @@ const GameScreen: React.FC = () => {
     }, [positionY]);
 
     return (
-      <Animated.View
+      <Animated.Image
+        source={require('./assets/arrow.png')}
         style={[
           styles.arrow,
           {
@@ -133,19 +147,20 @@ const GameScreen: React.FC = () => {
         });
 
         return (
-          <Animated.View
-            key={arrow.id}
-            style={[
-              styles.attachedArrow,
-              {
-                transform: [
-                  { rotate: rotateInterpolation },
-                  { translateY: -wheelSize / 2 },
-                ],
-              },
-            ]}
+          <Animated.Image
+          key={arrow.id}
+          source={require('./assets/arrow.png')}
+          style={[
+            styles.attachedArrow,
+            {
+              transform: [
+                { rotate: rotateInterpolation },
+                { translateY: wheelSize / 2 },
+              ],
+            },
+          ]}
           />
-        );
+        )
       });
   };
 
@@ -184,6 +199,9 @@ const GameScreen: React.FC = () => {
               <Arrow key={arrow.id} arrowId={arrow.id} />
             ))}
 
+          {/* Fixed Arrow at Bottom */}
+          <Image source={require('./assets/arrow.png')} style={styles.fixedArrow} />
+
           {/* Score */}
           <Text style={styles.score}>Score: {score}</Text>
         </View>
@@ -200,11 +218,12 @@ const styles = StyleSheet.create({
   gameArea: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+
   },
   wheel: {
-    justifyContent: 'center',
+    marginTop: 100,
     alignItems: 'center',
+    justifyContent: 'center'
   },
   arrow: {
     position: 'absolute',
@@ -217,15 +236,18 @@ const styles = StyleSheet.create({
   },
   attachedArrow: {
     position: 'absolute',
-    width: 10,
-    height: 50,
-    backgroundColor: '#6F2232',
-    bottom: wheelSize / 2 - 25,
-    borderRadius: 5,
+    width: 100,
+    height: 150
+  },
+  fixedArrow: {
+    position: 'absolute',
+    width: 100,
+    height: 150,
+    bottom: 50,
   },
   score: {
     position: 'absolute',
-    top: 50,
+    bottom: 20,
     color: '#FFFFFF',
     fontSize: 24,
     fontWeight: 'bold',
