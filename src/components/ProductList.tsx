@@ -10,6 +10,7 @@ import {
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
 import colors from '../styles/colors';
+import { BASEE_URL } from '../constants';
 
 interface Product {
   id: number;
@@ -27,7 +28,7 @@ const ProductList: React.FC = () => {
   // Fetch product data from the API
   React.useEffect(() => {
     axios
-      .get('http://192.168.1.7:3000/products') // Use localhost or 10.0.2.2 for Android emulator
+      .get(`${BASEE_URL}/products`)
       .then(response => {
         setProducts(response.data);
         setLoading(false);

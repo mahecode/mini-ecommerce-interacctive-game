@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 const HomeStack = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="Home"
+      name="HomeScreen"
       component={HomeScreen}
       options={{headerShown: false}} // Remove header from HomeScreen
     />

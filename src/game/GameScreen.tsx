@@ -99,7 +99,7 @@ const GameScreen: React.FC = () => {
   const generateDiscount = (finalScore: number) => {
     const discount = finalScore * 2; // Example calculation
     Alert.alert('Game Over', `Your discount is ${discount}%`, [
-      { text: 'Play Again', onPress: resetGame },
+      { text: 'Exit', onPress: resetGame },
     ]);
   };
 

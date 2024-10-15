@@ -1,0 +1,1 @@
+export const BASEE_URL = 'http://192.168.1.7:3000' // use localhost or local ip address with 
