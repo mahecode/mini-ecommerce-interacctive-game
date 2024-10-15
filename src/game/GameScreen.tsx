@@ -1,5 +1,6 @@
 // GameScreen.tsx
 
+import { useNavigation } from '@react-navigation/native';
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
@@ -29,7 +30,7 @@ const GameScreen: React.FC = () => {
   const [isGameOver, setGameOver] = useState<boolean>(false);
   const rotation = useRef(new Animated.Value(0)).current;
   const fixedArrowPositionY = useRef(new Animated.Value(height - 100)).current;
-
+  const navigation = useNavigation()
   const currentRotation = useRef(0);
 
   // Start wheel rotation and set up listener
@@ -103,6 +104,7 @@ const GameScreen: React.FC = () => {
   };
 
   const resetGame = () => {
+    navigation.goBack()
     setArrows([]);
     setScore(0);
     setGameOver(false);
